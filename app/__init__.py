@@ -15,11 +15,12 @@ def create_app():
     # 绑定数据库
     db.init_app(app)
 
-    # 下面两种方法都可以创建数据库
-    # db.create_all(app=app)
 
-    with app.app_context():
-        db.create_all()
+    # 下面两种方法都可以创建数据库
+    db.create_all(app=app)
+
+    # with app.app_context():
+    #     db.create_all()
 
     return app
 
