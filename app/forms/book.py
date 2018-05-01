@@ -7,7 +7,7 @@ __author__ = 'Xbc'
 """
 
 from wtforms import Form, StringField, IntegerField
-from wtforms.validators import Length, NumberRange, DataRequired
+from wtforms.validators import Length, NumberRange, DataRequired  # DataRequired 验证空格,防止用户传入空格
 
 
 class SearchForm(Form):

@@ -15,6 +15,10 @@ from sqlalchemy import Column, Integer, String, INTEGER
 from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
+# Cdoe First  专注业务模型的设计, 而不是专注数据库设计
+# 数据库只是用来存储数据的, 它的表关系应该由我们的业务来决定
+
+# 业务逻辑是应该写在MVC里的那一层??  业务逻辑最好写在model层里面
 
 class Book(db.Model):
     __tablename__ = 'tb_book'

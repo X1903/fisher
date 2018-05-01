@@ -16,11 +16,11 @@ class HTTP(object):
     @staticmethod
     def get(url, return_json=True):
         """
-                get 获取数据
-                :param url: <str>:获取地址
-                :param return_json: <bool>:是否返回json格式的数据
-                :return: <dict> or str
-                """
+        get 获取数据
+        :param url: <str>:获取地址
+        :param return_json: <bool>:是否返回json格式的数据
+        :return: <dict> or str
+        """
 
         # restful
         # json

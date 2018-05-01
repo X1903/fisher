@@ -2,12 +2,15 @@
 __author__ = 'Xbc'
 
 
+
+
 from app.libs.httper import HTTP
 from flask import current_app
 
 class YuShuBook(object):
 
 
+    # 模型层 MVC M层
     isbn_url = 'http://t.yushu.im/v2/book/isbn/{}'
     keyword_url = 'http://t.yushu.im/v2/book/search?q={}&count={}&start={}'
 
@@ -31,3 +34,7 @@ class YuShuBook(object):
     def calculate_start(page):
         '''计算分页数量'''
         return (int(page)-1) * current_app.config['PER_PAGE']
+    
+    
+    
+    
