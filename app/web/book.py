@@ -5,15 +5,36 @@ __author__ = 'Xbc'
 
 
 from flask import jsonify, Blueprint, request
+import json
 
 from app.libs.helper import is_isbn_or_key
 from app.spider.yushu_book import YuShuBook
 from app.forms.book import SearchForm
+from app.view_models.book import BookViewModel, BookCollection
 # from . import web
 
 
 # 蓝图 blueprint  蓝本
 web = Blueprint('web', __name__)
+
+
+
+@web.route('/testa')
+def test1():
+    from flask import request
+    from app.libs.none_local import n
+
+    print(n.v)
+    n.v = 2
+    print(n.v)
+    print("----------------")
+    print(getattr(request, 'v', None))
+    setattr(request, 'v', 2)
+    print(request.v)
+    print("*"*100)
+    return  'ok'
+
+
 
 @web.route('/book/search')   #http://0.0.0.0:5000/book/search/9787501524044/0
 def search():
@@ -28,23 +49,37 @@ def search():
     # HTTP 的请求信息
     # 查询参数 POST 参数 remote ip
 
-    form = SearchForm(request.args)     # http://0.0.0.0:5000/book/search?q=%E9%83%AD%E6%95%AC%E6%98%8E&page=2
+    form = SearchForm(request.args)     # http://0.0.0.0:5000/book/search?q=%E9%83%AD%E6%95%AC%E6%98%8E&page=2    http://0.0.0.0:5000/book/search?q=%E7%BA%A2%E6%A5%BC%E6%A2%A6&page=1
+    books = BookCollection()
     if form.validate():
-        q = request.args['q']
-        page = request.args['page']
-        ip = request.remote_addr
-        print(q, page, ip)
+        # q = request.args['q']
+        # page = request.args['page']
+        # ip = request.remote_addr
+        # print(q, page, ip)
+
+        q = form.q.data.strip()         # http://0.0.0.0:5000/book/search?q=9787501524044
+        page = form.page.data           # http://0.0.0.0:5000/book/search?q=红楼梦
 
         # a = request.args.to_dict()  # 把不可变字典变成可变字典
 
         isbn_or_key = is_isbn_or_key(q)
-        if isbn_or_key == 'isbn':
-            result = YuShuBook.search_by_isbn(q)
-        else:
-            result = YuShuBook.search_by_keyword(q, page)
+        yushu_book = YuShuBook()
 
+        if isbn_or_key == 'isbn':
+            yushu_book.search_by_isbn(q)
+            # result = YuShuBook.search_by_isbn(q)
+            # result = BookViewModel.pacage_single(result, q)
+        else:
+            yushu_book.search_by_keyword(q, page)
+            # result = YuShuBook.search_by_keyword(q, page)
+            # result = BookViewModel.package_collection(result, q)
 
         # return json.dumps(result), 200, {'content-type':'application/json'}
-        return jsonify(result)
+        # return jsonify(result)
+
+        # __dict__
+        books.fill(yushu_book, q)
+        return json.dumps(books, default=lambda o: o.__dict__)
+        # return jsonify(books.__dict__)
     else:
         return jsonify(form.errors)
