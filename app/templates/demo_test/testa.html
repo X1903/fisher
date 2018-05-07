@@ -1,0 +1,42 @@
+{% extends 'demo_test/layout.html' %}
+
+{% block content %}
+
+<h1>七月</h1>
+
+<h2>{{data.age}}</h2>
+<h3>{{data.name}}</h3>
+
+<h2>{{ data['age'] }}</h2>
+<h2>{{ data['name'] }}</h2>
+
+{% if data.age < 18 %}
+    <a href="/">{{ data.name }}</a>
+{% elif data.age == 18 %}
+    <h1>{{ data.school | default('未名') }}</h1>
+
+    <h1>{{ data.school | default(data.school) | default('未名') }}</h1>
+    <h1>{{ data | length() }}</h1>
+
+
+
+{#    <h2>{% set messages = get_flashed_messages() %} </h2>#}
+    <h2>{% with messages = get_flashed_messages() %}</h2>
+        {% for m in messages %}
+            <p>{{ m }}</p>
+        {% endfor %}
+        <h2>{{ messages }}</h2>
+    <h2>{% endwith %}</h2>
+
+{% else %}
+    <h1>{{ data.name }}</h1>
+{% endif %}
+
+{#jinja2#}
+{#模板语言#}
+
+{#if#}
+{#for in#}
+{#object#}
+
+{% endblock content %}

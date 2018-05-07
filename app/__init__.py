@@ -5,6 +5,8 @@ from app.models.book import db
 __author__ = 'Xbc'
 
 def create_app():
+    # app = Flask(__name__, static_folder='', static_path='')
+    # app = Flask(__name__, template_folder='web/templates')
     app = Flask(__name__)
     app.config.from_object('app.secure')
     app.config.from_object('app.setting')

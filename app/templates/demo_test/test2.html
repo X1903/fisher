@@ -1,0 +1,9 @@
+{% extends 'demo_test/layout.html' %}
+
+{% block content %}
+    {{ super() }}
+    {#{% for  foo in [1,2,3,4] %}#}
+    {% for  key, value in data.items() %}
+        <p>{{ key }}---{{ value }}</p>
+    {% endfor %}
+{% endblock content %}

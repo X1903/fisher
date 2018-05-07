@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='testa.css') }}">
+    <title>Title</title>
+</head>
+<body>
+{% block header %}
+    <div>This is header</div>
+{% endblock header %}
+
+
+{% block content %}
+    <div>This is content</div>
+{% endblock content %}
+
+{% block foot %}
+    <div>Thies is foot</div>
+{% endblock foot %}
+</body>
+</html>

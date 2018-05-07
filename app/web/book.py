@@ -4,7 +4,7 @@
 __author__ = 'Xbc'
 
 
-from flask import jsonify, Blueprint, request
+from flask import jsonify, Blueprint, request, render_template, flash
 import json
 
 from app.libs.helper import is_isbn_or_key
@@ -16,24 +16,6 @@ from app.view_models.book import BookViewModel, BookCollection
 
 # 蓝图 blueprint  蓝本
 web = Blueprint('web', __name__)
-
-
-
-@web.route('/testa')
-def test1():
-    from flask import request
-    from app.libs.none_local import n
-
-    print(n.v)
-    n.v = 2
-    print(n.v)
-    print("----------------")
-    print(getattr(request, 'v', None))
-    setattr(request, 'v', 2)
-    print(request.v)
-    print("*"*100)
-    return  'ok'
-
 
 
 @web.route('/book/search')   #http://0.0.0.0:5000/book/search/9787501524044/0
@@ -82,4 +64,44 @@ def search():
         return json.dumps(books, default=lambda o: o.__dict__)
         # return jsonify(books.__dict__)
     else:
-        return jsonify(form.errors)
+        flash('搜索的关键字不符合要求, 请重新输入关键字')
+        # return jsonify(form.errors)
+
+
+
+@web.route('/testa')
+def test1():
+    from flask import request
+    from app.libs.none_local import n
+
+    print(n.v)
+    n.v = 2
+    print(n.v)
+    print("----------------")
+    print(getattr(request, 'v', None))
+    setattr(request, 'v', 2)
+    print(request.v)
+    print("*"*100)
+    return  'ok'
+
+
+
+@web.route('/testb')
+def testb():
+    r = {
+        'name':'',
+        'age':18
+    }
+
+    flash('hello, qiyue')
+
+    # return jsonify(r)
+    return render_template('demo_test/testa.html', data=r) # 填充的模板, 填充的数据
+
+@web.route('/test2')
+def test2():
+    r = {
+        'name': '七月',
+        'age': 18
+    }
+    return render_template('demo_test/test2.html', data=r)
