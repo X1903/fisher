@@ -12,8 +12,10 @@ __author__ = 'Xbc'
 # pipenv graph
 
 from sqlalchemy import Column, Integer, String, INTEGER
-from flask_sqlalchemy import SQLAlchemy
-db = SQLAlchemy()
+
+# from flask_sqlalchemy import SQLAlchemy  # 移动到公共文件中去
+# db = SQLAlchemy()
+from app.models.base import db
 
 # Cdoe First  专注业务模型的设计, 而不是专注数据库设计
 # 数据库只是用来存储数据的, 它的表关系应该由我们的业务来决定
