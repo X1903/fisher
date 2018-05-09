@@ -1,8 +1,11 @@
 # _*_ coding:utf-8 _*_
 from flask import Flask
+from flask_login import LoginManager
 from app.models.book import db
 
 __author__ = 'Xbc'
+
+login_manager = LoginManager()  # 实例化登录
 
 def create_app():
     # app = Flask(__name__, static_folder='', static_path='')
@@ -16,6 +19,11 @@ def create_app():
 
     # 绑定数据库
     db.init_app(app)
+
+    # 注册登录初始化工作
+    login_manager.init_app(app)
+    login_manager.login_view = 'web.login'
+    login_manager.login_message = '请重新登录或注册'
 
 
     # 下面两种方法都可以创建数据库

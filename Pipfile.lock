@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "f51dd7024e7dfd4c856fa4c99fed1d96574063d67559f9b1f2874c52bd246382"
+            "sha256": "846d1d2905a320dfd5ea930c9dbfb037ec281ffa9a7a91c014a6a1716a2a797d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -40,18 +40,25 @@
         },
         "cymysql": {
             "hashes": [
-                "sha256:d754b7fd403b23d2bb664fda3993cf20a673603adeca03d5c2b246d378404903"
+                "sha256:a16b1acf9bfa42ab736899d95f7475a6492c54515cec6af13ff2f38691b87549"
             ],
             "index": "pypi",
-            "version": "==0.9.4"
+            "version": "==0.9.7"
         },
         "flask": {
             "hashes": [
-                "sha256:0749df235e3ff61ac108f69ac178c9770caeaccad2509cb762ce1f65570a8856",
-                "sha256:49f44461237b69ecd901cc7ce66feea0319b9158743dd27a2899962ab214dac1"
+                "sha256:2271c0070dbcb5275fad4a82e29f23ab92682dc45f9dfbc22c02ba9b9322ce48",
+                "sha256:a080b744b7e345ccfcbc77954861cb05b3c63786e93f2b3875e0913d44b43f05"
             ],
             "index": "pypi",
-            "version": "==0.12.2"
+            "version": "==1.0.2"
+        },
+        "flask-login": {
+            "hashes": [
+                "sha256:c815c1ac7b3e35e2081685e389a665f2c74d7e077cb93cecabaea352da4752ec"
+            ],
+            "index": "pypi",
+            "version": "==0.4.1"
         },
         "flask-sqlalchemy": {
             "hashes": [
@@ -101,9 +108,9 @@
         },
         "public": {
             "hashes": [
-                "sha256:15e28490904e7ad7a1fcbacdc83cb9db9c65f6ee2f661ab092456d5156e5b7b4"
+                "sha256:86e6fabc9742eac81fea6c5a52f65ecdf51414b2638e02f2c73bc3c64011201c"
             ],
-            "version": "==1.0.1"
+            "version": "==1.0.2"
         },
         "query-string": {
             "hashes": [
@@ -129,9 +136,9 @@
         },
         "sqlalchemy": {
             "hashes": [
-                "sha256:7cb00cc9b9f92ef8b4391c8a2051f81eeafefe32d63c6b395fd51401e9a39edb"
+                "sha256:d6cda03b0187d6ed796ff70e87c9a7dce2c2c9650a7bc3c022cd331416853c31"
             ],
-            "version": "==1.2.6"
+            "version": "==1.2.7"
         },
         "urllib3": {
             "hashes": [
