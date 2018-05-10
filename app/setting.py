@@ -3,3 +3,5 @@ __author__ = 'Xbc'
 
 DEBUG = True
 
+
+BEANS_UPLOAD_ONE_BOOK = 0.5

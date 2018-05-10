@@ -40,7 +40,7 @@ def login():
         if user and user.check_password(form.password.data):
             login_user(user, remember=True)   # remember=True  默认保存365天
             next = request.args.get('next')  # args 获取URL ?后的数据
-            if not next and not next.startswith('/'):   # 防止重定向攻击
+            if not next or not next.startswith('/'):   # 防止重定向攻击
                 next = url_for('web.index')
             return redirect(next)
         else:

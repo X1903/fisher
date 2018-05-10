@@ -1,7 +1,7 @@
 # _*_ coding:utf-8 _*_
 from flask import Flask
 from flask_login import LoginManager
-from app.models.book import db
+from app.models.base import db
 
 __author__ = 'Xbc'
 
