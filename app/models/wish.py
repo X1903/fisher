@@ -9,7 +9,7 @@ from app.models.base import Base
 
 class Wish(Base):
 
-    __tablename__ = 'with'
+    __tablename__ = 'wish'
 
     id = Column(Integer, primary_key=True)
 
@@ -20,5 +20,7 @@ class Wish(Base):
     isbn = Column(String(13))
 
     launched = Column(Boolean, default=False)
+
+
 
 

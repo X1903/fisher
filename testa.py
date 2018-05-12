@@ -10,3 +10,9 @@ def intro():
 
 a = intro()
 print(a)
+
+
+
+from datetime import datetime
+
+print(int(datetime.now().timestamp()))

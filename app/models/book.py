@@ -37,6 +37,7 @@ class Book(Base):
     summary = Column(String(1000), comment='内容简介')                             # 图书的简介
     image = Column(String(50), comment='图片地址')                                 # 图书的封面
 
+
     # MVC M Model  只有数据 = 数据表
     # ORM 对象关系映射 Code First
 

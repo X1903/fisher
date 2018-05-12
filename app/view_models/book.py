@@ -13,6 +13,8 @@ class BookViewModel:
         self.isbn = book['isbn']
         self.pages = book['pages']
 
+        self.pubdate = book['pubdate']
+        self.binding = book['binding']
     @property
     def intro(self):
         intros = filter(lambda x: True if x else False, [str(self.author), str(self.publisher), str(self.price)])

@@ -17,13 +17,14 @@ def register():
     form = RegisterForm(request.form)
 
     if request.method == 'POST' and form.validate():
-        user = User()
-        # user.nickname = form.nickname.data
-        # user.email = form.email.data
-        user.set_attrs(form.data)  # form.data 包含了所有客户端提交过来的信息
-        # user.password = generate_password_hash(form.password.data)   # 写入模型里面了
-        db.session.add(user)
-        db.session.commit()
+        with db.auto_commit():
+            user = User()
+            # user.nickname = form.nickname.data
+            # user.email = form.email.data
+            user.set_attrs(form.data)  # form.data 包含了所有客户端提交过来的信息
+            # user.password = generate_password_hash(form.password.data)   # 写入模型里面了
+            db.session.add(user)
+        # db.session.commit()
 
         return redirect(url_for('web.login'))  # 注册成功重定向到登录页面
 
