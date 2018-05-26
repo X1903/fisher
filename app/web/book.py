@@ -77,7 +77,7 @@ def book_detail(isbn):
     has_in_wishs = False
 
 
-    # 获取数据的信息
+    # 获取数据的信息  书籍详情数据
     yushu_book = YuShuBook()
     yushu_book.search_by_isbn(isbn)
     book = BookViewModel(yushu_book.first)
